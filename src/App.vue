@@ -21,7 +21,11 @@
 
             <div class="form-group">
               <label>Nome:</label>
-              <input type="text" class="form-control" placeholder="Seu nome">
+              <input 
+                type="text" 
+                class="form-control" 
+                placeholder="Seu nome"
+                v-model="nome">
             </div>
 
             <div class="form-group">
@@ -114,7 +118,7 @@
             <div class="card-header">Dados</div>
 
             <ul class="list-group list-group-flush">
-              <li class="list-group-item"><strong>Nome:</strong></li>
+              <li class="list-group-item"><strong>Nome:</strong> {{ nome }}</li>
               <li class="list-group-item"><strong>Email:</strong> </li>
               <li class="list-group-item"><strong>Idade:</strong></li>
               <li class="list-group-item"><strong>Gênero:</strong> </li>
@@ -140,6 +144,17 @@
 
   </div>
 </template>
+
+<script>
+export default {
+  data() {
+    return {
+      nome: ''
+    }
+  }
+}
+</script>
+
 
 
 <style scoped>
