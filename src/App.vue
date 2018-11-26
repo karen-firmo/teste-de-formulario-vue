@@ -136,6 +136,16 @@
             </div>
 
             <div class="form-group">
+              <AppRange 
+                label="Salário pretendido:"
+                v-model.number="desenvolvedor.salario"
+                min="1000"
+                max="15000"
+                step="500"
+                :inputClasses="[{'form-control-range': true}, 'minha-classe']" />
+            </div>
+
+            <div class="form-group">
 
               <div class="form-check form-check-inline">
                 <input 
@@ -187,6 +197,7 @@
                 <div style="white-space: pre">{{ desenvolvedor.biografia }}</div>
               </li>
               <li class="list-group-item"><strong>Receber notificações?</strong> {{ desenvolvedor.notificacoes }}</li>
+              <li class="list-group-item"><strong>Salário pretendido:</strong> {{ desenvolvedor.salario }}</li>
             </ul>
 
             <div class="card-header">Model</div>
@@ -207,7 +218,13 @@
 </template>
 
 <script>
+
+import AppRange from './components/Range.vue'
+
 export default {
+  components: {
+    AppRange
+  },
   data() {
     return {
       desenvolvedor: {},
@@ -219,7 +236,8 @@ export default {
         genero: 'Masculino',
         tecnologias: [],
         notificacoes: 'Não',
-        ocupacao: ''
+        ocupacao: '',
+        salario: 1000
       },
       ocupacoes: [
         'Desenvolvedor Front End (Web)',
