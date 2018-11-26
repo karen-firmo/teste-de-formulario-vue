@@ -34,7 +34,8 @@
                 type="email" 
                 class="form-control" 
                 placeholder="Seu email"
-                v-model.lazy="desenvolvedor.email">
+                :value="desenvolvedor.email"
+                @input="desenvolvedor.email = $event.target.value">
             </div>
 
             <div class="form-group">
