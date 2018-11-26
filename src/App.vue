@@ -72,8 +72,14 @@
 
             <div class="form-group">
               <label>Ocupação:</label>
-              <select class="form-control" placeholder="Seu email">
-                <option>Selecione uma opção...</option>
+              <select class="form-control" v-model="desenvolvedor.ocupacao">
+                <option value="" disabled>Selecione uma opção...</option>
+                <option 
+                  v-for="(ocupacao, indice) in ocupacoes"
+                  :key="indice"
+                  :value="ocupacao">
+                    {{ ocupacao }}
+                </option>
               </select>
             </div>  
 
@@ -163,7 +169,7 @@
               <li class="list-group-item"><strong>Email:</strong> {{ desenvolvedor.email }}</li>
               <li class="list-group-item"><strong>Idade:</strong> {{ desenvolvedor.idade }}</li>
               <li class="list-group-item"><strong>Gênero:</strong> {{ desenvolvedor.genero }}</li>
-              <li class="list-group-item"><strong>Ocupação:</strong> </li>
+              <li class="list-group-item"><strong>Ocupação:</strong> {{ desenvolvedor.ocupacao }}</li>
               <li class="list-group-item">
                 <strong>Tecnologias:</strong>
                 <ul>
@@ -210,8 +216,16 @@ export default {
         biografia: 'Sou desenvolvedor desde 2010...',
         genero: 'Masculino',
         tecnologias: [],
-        notificacoes: 'Não'
-      }
+        notificacoes: 'Não',
+        ocupacao: ''
+      },
+      ocupacoes: [
+        'Desenvolvedor Front End (Web)',
+        'Desenvolvedor Front End (Mobile)',
+        'Desenvolvedor Front End (Web e Mobile)',
+        'Desenvolvedor Back End',
+        'Desenvolvedor Full Stack'
+      ]
     }
   }
 }
