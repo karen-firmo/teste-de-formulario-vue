@@ -237,7 +237,7 @@ export default {
         tecnologias: [],
         notificacoes: 'Não',
         ocupacao: '',
-        salario: 1000
+        salario: 2000
       },
       ocupacoes: [
         'Desenvolvedor Front End (Web)',
