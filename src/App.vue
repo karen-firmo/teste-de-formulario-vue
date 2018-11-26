@@ -82,22 +82,38 @@
               <p>Tecnologias:</p>
 
               <div class="form-check form-check-inline">
-                <input type="checkbox" class="form-check-input" value="JavaScript">
+                <input 
+                  type="checkbox" 
+                  class="form-check-input" 
+                  value="JavaScript"
+                  v-model="desenvolvedor.tecnologias">
                 <label class="form-check-label">JavaScript</label>
               </div>
 
-              <div class="form-check form-check-inline" value="Vue JS">
-                <input type="checkbox" class="form-check-input">
+              <div class="form-check form-check-inline">
+                <input 
+                  type="checkbox" 
+                  class="form-check-input"
+                  value="Vue JS"
+                  v-model="desenvolvedor.tecnologias">
                 <label class="form-check-label">Vue JS</label>
               </div>
 
               <div class="form-check form-check-inline">
-                <input type="checkbox" class="form-check-input" value="Vuex">
+                <input 
+                  type="checkbox" 
+                  class="form-check-input" 
+                  value="Vuex"
+                  v-model="desenvolvedor.tecnologias">
                 <label class="form-check-label">Vuex</label>
               </div>
 
               <div class="form-check form-check-inline">
-                <input type="checkbox" class="form-check-input" value="Vue Router">
+                <input 
+                  type="checkbox" 
+                  class="form-check-input" 
+                  value="Vue Router"
+                  v-model="desenvolvedor.tecnologias">
                 <label class="form-check-label">Vue Router</label>
               </div>
 
@@ -148,7 +164,16 @@
               <li class="list-group-item"><strong>Idade:</strong> {{ desenvolvedor.idade }}</li>
               <li class="list-group-item"><strong>Gênero:</strong> {{ desenvolvedor.genero }}</li>
               <li class="list-group-item"><strong>Ocupação:</strong> </li>
-              <li class="list-group-item"><strong>Tecnologias:</strong> </li>
+              <li class="list-group-item">
+                <strong>Tecnologias:</strong>
+                <ul>
+                  <li 
+                    v-for="(tecnologia, indice) in desenvolvedor.tecnologias"
+                    :key="indice">
+                      {{ tecnologia }}
+                  </li>
+                </ul>
+              </li>
               <li class="list-group-item">
                 <strong>Biografia:</strong>
                 <!-- <pre>{{ desenvolvedor.biografia }}</pre> -->
@@ -184,6 +209,7 @@ export default {
         idade: 28,
         biografia: 'Sou desenvolvedor desde 2010...',
         genero: 'Masculino',
+        tecnologias: [],
         notificacoes: 'Não'
       }
     }
